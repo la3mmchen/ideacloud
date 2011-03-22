@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <meta charset=utf-8>
+    <title>ideacloud.us - share your ideas, find help for realization</title>
+    
+    <script src="js/modernizr-1.7.min.js"></script><!-- this is the javascript allowing html5 to run in older browsers -->
+    
+    <link rel="stylesheet" type="text/css" href="css/reset.css" media="screen" title="html5doctor.com Reset Stylesheet" />
+    
+    <!-- in the CSS3 stylesheet you will find examples of some great new features CSS has to offer -->
+    <link rel="stylesheet" type="text/css" href="css/css3.css" media="screen" />
+    
+    <!-- general stylesheet contains some default styles, you do not need this, but it helps you keep a uniform style -->
+    <link rel="stylesheet" type="text/css" href="css/general.css" media="screen" />
+    
+    <!-- grid's will help you keep your website appealing to your users, view 52framework.com website for documentation -->
+    <link rel="stylesheet" type="text/css" href="css/grid.css" media="screen" />
+    
+    <!-- special styling for forms, this can be used as a form framework on its own -->
+    <link rel="stylesheet" type="text/css" href="css/forms.css" media="screen" />
+    
+    <!-- the following style is for demonstartion purposes only and is not needed for anything but inspiration -->
+     <style>
+		header {padding-top:25px; border-bottom:1px solid #0F800C; padding-bottom:20px;}
+		header .logo {font-size:3.52em;}
+		header nav ul li {float:left; margin-top:12px;}
+		header nav ul li a {display:block; padding:5px 15px; border-right:1px solid #0F800C; font-size:1.52em; font-family:Georgia, "Times New Roman", Times, serif; text-decoration:none;}
+		header nav ul li a:hover {background-color:#ccc; border-right:1px solid #ccc; text-shadow:-1px -1px 0px #ccc; color: #0F800C; }
+		header nav ul li.last a {border-right:none;}
+		
+		#css3 div > div {margin:0px 0px 50px 0px; padding:6px; border:1px solid #eee;}
+		#grid div {text-align:center;  }
+		#grid div > .col {border-bottom:1px solid #ccc; padding:10px 0px; outline:1px solid #eee;}
+		
+		h2 {border-bottom:1px dashed #0F800C; margin-top:15px;}
+		
+		.documentation {display:block; background-color:#eee; padding:6px 13px; font-family:Georgia, "Times New Roman", Times, serif; color:#666; text-align:right; text-shadow:-1px -1px 0px #fff;}
+		
+	</style>
+    </head>
+
+<body>
+<a href="add.html" class="widget-button" id="widget-button-add" ><img src="images/add.png" alt="quick add" /></a>
+<a href="idea.html"  class="widget-button" id="widget-button-cloud"><img src="images/cloud.png" alt="quick cloud" /></a>
+<a href="ideacentre.html"  class="widget-button" id="widget-button-ideacentre"><img src="images/ideacentre.png" alt="quick_ideacentre" /></a>
+<div class="row">
+	<header>
+    	
+        <div class="logo col_7 col">ideacloud.us</div><!-- logo col_7 -->
+        
+      <nav class="col_9 col">
+          	<ul>
+            	<li><a href="index.html">home</a></li>
+                <li><a href="index.html#functions">functions</a></li>
+                <li><a href="index.html#uniqueness">uniqueness</a></li>
+            	<li class="last"><a href="index.html#news">news</a></li>
+            </ul>
+        </nav><!-- nav col_9 -->
+      <div class="clear"></div><!-- clear -->
+    </header>
+</div><!-- row -->
+
+<section class="row" id="forms">
+	<h2 class="fontface">pge (at) ideacloud (dot) us</h2>
+	
+	<noscript>
+		<p id="no-js" class="error-message">please active javascript for getting the best results out of ideacloud.us.</p>
+	</noscript>
+	 <blockquote class="right" style="width:250px;">
+        	Try to be as accurate as you can while describing your idea without revealing too much of the idea. 
+     </blockquote>
+    <form class="col col_5" method="post" action="route.php">
+    	<fieldset class="s_column">	
+        	<legend>add an idea</legend>
+            <div>
+            	<label for="idea_name">your name</label>
+                <input type="idea_name" id="idea_name" required="required" class="box_shadow" name="idea_name"  />
+            </div>
+            <div>
+            	<label for="idea_email">your mail</label>
+                <input type="email" id="idea_email" required="required" class="box_shadow" min="10" name="idea_email"/>
+            </div>
+            <div>
+            	<label for="idea_description">description</label>
+                <textarea class="box_shadow textarea" name="idea_description" id="idea_description" cols="30" rows="10"></textarea>
+            </div>
+            <input type="submit" value="add idea &rarr;" />
+        </fieldset>
+    </form>
+     <div class="clear"></div>
+  <div class="clear" style="height:15px;"></div><!-- clear -->
+	<div class="col_16 col">
+    	
+    </div><!-- col -->
+</section><!-- row -->
+
+<footer class="row">
+	<div class="col_16 col"></div>
+	<div class="col_16 col" id="bottom"> 
+	<p> follow us on:  <a href="http://twitter.com/ideacloud_us/public" target="_blank" > <img src='images/socialMedia/twitter.png'/> </a>
+	</p>
+	
+	ideacloud.us is based on the <a href="http://www.52framework.com/" target="_blank">52framework</a> | all rights reserved &copy; <a href="http://www.enavu.com">enavu network</a> | 52framework the framework from the future
+	</div>
+</footer>
+</body>
+</html>

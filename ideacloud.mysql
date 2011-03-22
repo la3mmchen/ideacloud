@@ -1,0 +1,122 @@
+-- phpMyAdmin SQL Dump
+-- version 3.3.7deb3build0.10.10.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Mar 13, 2011 at 10:27 PM
+-- Server version: 5.1.49
+-- PHP Version: 5.3.3-1ubuntu9.3
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `ideacloud`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_idea`
+--
+
+DROP TABLE IF EXISTS `tbl_idea`;
+CREATE TABLE IF NOT EXISTS `tbl_idea` (
+  `idea_id` int(11) NOT NULL AUTO_INCREMENT,
+  `idea_name` varchar(250) NOT NULL,
+  `idea_mail` varchar(250) NOT NULL,
+  `idea_description` text NOT NULL,
+  `idea_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`idea_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
+
+--
+-- Dumping data for table `tbl_idea`
+--
+
+INSERT INTO `tbl_idea` (`idea_id`, `idea_name`, `idea_mail`, `idea_description`, `idea_timestamp`) VALUES
+(1, 'lala1', 'sdf', 'sfsdgfsdgsd ', '2011-03-13 12:26:30'),
+(2, 'lala1', 'sdf', 'sfsdgfsdgsd ', '2011-03-13 12:27:37'),
+(3, 'lala1', 'sdf', 'sfsdgfsdgsd ', '2011-03-13 12:27:53'),
+(4, 'dsafsa', 'adsfsadf', 'asfdaf dafdsaf', '2011-03-13 16:13:12'),
+(5, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:30:54'),
+(6, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:32:10'),
+(7, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:33:27'),
+(8, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:33:48'),
+(9, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:34:06'),
+(10, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:34:14'),
+(11, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:34:34'),
+(12, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:34:39'),
+(13, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:35:07'),
+(14, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:35:11'),
+(15, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:35:23'),
+(16, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:35:30'),
+(17, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:36:46'),
+(18, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:36:49'),
+(19, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:38:27'),
+(20, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:38:31'),
+(21, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:39:05'),
+(22, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:39:19'),
+(23, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:41:01'),
+(24, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:43:46'),
+(25, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:44:03'),
+(26, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:44:40'),
+(27, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:44:51'),
+(28, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:50:47'),
+(29, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:51:35'),
+(30, 'dsaf', 'asd', 'sadfdsfg', '2011-03-13 16:54:41');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_idea2id`
+--
+
+DROP TABLE IF EXISTS `tbl_idea2id`;
+CREATE TABLE IF NOT EXISTS `tbl_idea2id` (
+  `idea2id_ideaId` int(11) NOT NULL,
+  `idea2id_uniqueId` varchar(20) NOT NULL,
+  PRIMARY KEY (`idea2id_ideaId`),
+  KEY `idea2id_uniqueId` (`idea2id_uniqueId`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_idea2id`
+--
+
+INSERT INTO `tbl_idea2id` (`idea2id_ideaId`, `idea2id_uniqueId`) VALUES
+(1, 'I3bbZ2bR54G1'),
+(2, 'mdaXGgxaOCsy'),
+(3, '4cI0dLBOdLjw'),
+(4, 'YEWS!8hZBP!G'),
+(5, 'HN#waDIWsvfh'),
+(6, 'slglEo708Ukn'),
+(7, 'VeZurxT8yN9b'),
+(8, 'XFwbHPhL1vIh'),
+(9, 'pYSY4Y5#tL2!'),
+(10, 'kMP2q9zJjjuH'),
+(11, 'rQiSF7IaRK4a'),
+(12, '2YBgqTssCOSl'),
+(13, 'dN5#doQv5U86'),
+(14, 'IvyPX!iXhd4b'),
+(15, 'TznKcC#DGRKn'),
+(16, 'psAQAWzNp7Ya'),
+(17, 'GYKxMUIqr8DN'),
+(18, 'CMp46lCP7hdi'),
+(19, 'VxkkaxH#QwfZ'),
+(20, 'jEcLXLPTTJ3g'),
+(21, '3pliSwFzaPwo'),
+(22, '4OSI2Gke22fT'),
+(23, 'V14BUr42qXkz'),
+(24, '4Iiu521Jvl2l'),
+(25, 'se9XvCqOngfH'),
+(26, 'o6VteWRvL#jc'),
+(27, 'Jf7fvnv9Q6CZ'),
+(28, 'YXTbt9TfakB8'),
+(29, '5X5Kz5QdasTx'),
+(30, 'UfuOQykftGNu');

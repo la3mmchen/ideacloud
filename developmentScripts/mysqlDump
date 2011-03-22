@@ -1,0 +1,1 @@
+mysqldump --compatible=MYSQL40 -u root -p ideacloud > ideacloud.mysql

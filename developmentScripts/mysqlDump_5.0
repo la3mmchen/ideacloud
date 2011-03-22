@@ -1,0 +1,99 @@
+-- phpMyAdmin SQL Dump
+-- version 3.3.7deb3build0.10.10.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Mar 20, 2011 at 06:04 PM
+-- Server version: 5.1.49
+-- PHP Version: 5.3.3-1ubuntu9.3
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `ideacloud`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_idea`
+--
+
+DROP TABLE IF EXISTS `tbl_idea`;
+CREATE TABLE IF NOT EXISTS `tbl_idea` (
+  `idea_id` int(11) NOT NULL AUTO_INCREMENT,
+  `idea_name` varchar(250) NOT NULL,
+  `idea_mail` varchar(250) NOT NULL,
+  `idea_description` text NOT NULL,
+  `idea_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`idea_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `tbl_idea`
+--
+
+INSERT INTO `tbl_idea` (`idea_id`, `idea_name`, `idea_mail`, `idea_description`, `idea_timestamp`) VALUES
+(0, 'The Origin', 'origin@examlpe.org', 'i need a web interface for storing all my ideas and sharing them with people who can probably help me with realization. \r\n\r\ngreetings', '2011-03-17 21:47:35'),
+(1, 'John Doe from Detroit', 'johndoe@examlpe.org', 'I need something like twitter for my in-corporate communication. it should be accessible via web and your should post url to documents...nothing more...\r\n\r\nplease help me out', '2011-03-15 19:46:54');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_idea2id`
+--
+
+DROP TABLE IF EXISTS `tbl_idea2id`;
+CREATE TABLE IF NOT EXISTS `tbl_idea2id` (
+  `idea2id_ideaId` int(11) NOT NULL,
+  `idea2id_uniqueId` varchar(30) NOT NULL,
+  PRIMARY KEY (`idea2id_ideaId`),
+  KEY `idea2id_uniqueId` (`idea2id_uniqueId`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_idea2id`
+--
+
+INSERT INTO `tbl_idea2id` (`idea2id_ideaId`, `idea2id_uniqueId`) VALUES
+(1, 'demo'),
+(2, 'NRVepBehAq17V1IG8UMWM1kOz');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_tag2id`
+--
+
+DROP TABLE IF EXISTS `tbl_tag2id`;
+CREATE TABLE IF NOT EXISTS `tbl_tag2id` (
+  `tag2id_uniqueTagId` int(11) NOT NULL AUTO_INCREMENT,
+  `tag2id_tagName` varchar(100) NOT NULL,
+  `tag2id_ideaId` int(11) NOT NULL,
+  PRIMARY KEY (`tag2id_uniqueTagId`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+
+--
+-- Dumping data for table `tbl_tag2id`
+--
+
+INSERT INTO `tbl_tag2id` (`tag2id_uniqueTagId`, `tag2id_tagName`, `tag2id_ideaId`) VALUES
+(1, 'second', 1),
+(2, 'third', 1),
+(3, 'first', 1),
+(8, 'anotherTag', 0),
+(5, 'second', 1),
+(6, 'second', 2),
+(7, 'third', 2),
+(9, 'justAnotherTag', 0),
+(10, 'getAnother', 0),
+(11, 'tagged', 0),
+(12, 'tagged', 1),
+(13, 'tagged', 1),
+(14, 'tagged', 1);
