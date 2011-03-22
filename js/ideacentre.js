@@ -1,17 +1,35 @@
+/**
+ * ideacloud.us - Script for the ideacentre
+ * 
+ * Version: 0.1
+ * Last Update: 03/22/2011 -> added documentation
+ * 
+ * 
+ * Copyright (c) by the ideacloud.us project
+ * https://github.com/la3mmchen/ideacloud
+ *  */
+ 
+ /* this function shoud be loaded after finishing loading */
 $(document).ready(function() {	
+	/* we don't want to reload the page on clicking the submit button, so we
+	 * overwrite the submit-event */
 	$("#ideaCentre_in").submit(function() {
-		var userId  = $("#idea_id").attr("value");
-		loadIdea(userId);
+		/* we need the id an user has typed */
+		var insertedId  = $("#idea_id").attr("value");
+		/* we need another js function which loads from backend */
+		loadIdea(insertedId);
 		return false;
 	});
+	/* again, we don't want to reload the page */
 	$("#ideaCentre_tag").submit(function() {
-		var userTag  = $("#tag_name").attr("value");
-		var userTagId  = $("#tag_idea").attr("value");
-		addTag(userTag,userTagId);
+		var userInputTag  = $("#tag_name").attr("value");
+		var userInputTagId  = $("#tag_idea").attr("value");
+		/* we need another js function for adding a tag to the backend */
+		addTag(userInputTag,userInputTagId);
 		return false;
 	});
 });
-
+/* this function trys to load the submitted information via a XHR */
 function loadIdea(id) {
 	$('<img style="margin-left: 5px;" src="images/load.gif" id="loading"/>').insertAfter("#submit_ideaCentre");
 	$.ajax({
@@ -34,7 +52,7 @@ function loadIdea(id) {
 	});
   return false;
 }
-
+/* this function trys to add a tag to an idea via a XHR */
 function addTag(tag, id) {
 	$("#tag_name").attr("value", "");	
 	$.ajax({

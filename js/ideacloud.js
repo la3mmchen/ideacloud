@@ -1,3 +1,13 @@
+/**
+ * ideacloud.us - Script for loading the idea cloud
+ * 
+ * Version: 0.1
+ * Last Update: 03/22/2011 -> added documentation
+ * 
+ * 
+ * Copyright (c) by the ideacloud.us project
+ * https://github.com/la3mmchen/ideacloud
+ *  */
 $(document).ready(function() {	
 	loadCloud();
 });

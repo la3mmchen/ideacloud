@@ -1146,3 +1146,24 @@ FileHandle closed
 2011/03/22 17:21 -> request for id demo received
 2011/03/22 17:21 -> {"idea_id":"1","idea_name":"John Doe from Detroit","idea_mail":"johndoe@examlpe.org","idea_description":"I need something like twitter for my in-corporate communication. it should be accessible via web and your should post url to documents...nothing more...\r\n\r\nplease help me out","idea_timestamp":"2011-03-15 19:46:54","idea_uniqueId":"demo"}
 2011/03/22 17:21 -> FileHandle closed
+2011/03/22 18:08 -> FileHandle opened
+2011/03/22 18:08 -> request for loading cloud
+2011/03/22 18:08 -> FileHandle closed
+2011/03/22 18:08 -> FileHandle opened
+2011/03/22 18:08 -> request for loading cloud
+2011/03/22 18:08 -> FileHandle closed
+2011/03/22 18:08 -> FileHandle opened
+2011/03/22 18:08 -> request for loading cloud
+2011/03/22 18:08 -> FileHandle closed
+2011/03/22 18:09 -> FileHandle opened
+2011/03/22 18:09 -> request for loading cloud
+2011/03/22 18:09 -> FileHandle closed
+2011/03/22 18:14 -> FileHandle opened
+2011/03/22 18:14 -> request for loading cloud
+2011/03/22 18:14 -> FileHandle closed
+2011/03/22 18:19 -> FileHandle opened
+2011/03/22 18:19 -> request for loading cloud
+2011/03/22 18:19 -> FileHandle closed
+2011/03/22 18:19 -> FileHandle opened
+2011/03/22 18:19 -> request for loading tagthird
+2011/03/22 18:19 -> FileHandle closed
