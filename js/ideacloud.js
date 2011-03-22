@@ -22,7 +22,6 @@ function loadCloud() {
 		success: function(rc) {
 			var isIdeaHTML = $(location).attr('href').search(/idea.html/i);
 			$(".ideaCloud > img").remove();
-			//var rcJson = '{	"tag1" : "five", "tag2" : "ten", "tag3" : "one", "tag4" : "four" , "tag5" : "six", "tag6" : "nine", "tag7" : "nine", "tag8" : "three", "tag10" : "two", "tag11" : "five", "tag12" : "five", "tag13" : "ten", "tag14" : "one", "tag15" : "four" , "tag16" : "six", "tag17" : "nine", "tag18" : "nine", "tag19" : "three", "tag20" : "two", "tag21" : "five"}';
 			var obj = jQuery.parseJSON(rc);
 			$.each(obj, function(i, val){
 				var p = $("<p>");
@@ -50,6 +49,7 @@ function loadTag(tag) {
 	$(".ideaCloud_idea").css("visibility" , "hidden");
 	$(".ideaCloud_tag > h2 > ins").remove();
 	$(".ideaCloud_tag > ul").remove();
+	$(".ideaCloud_idea > form").remove(); /* clean any forms - really don't know why this line is needed */
 	$(".ideaCloud_tag > h2").append(" <ins>"+tag+"</ins>");
 	
 	//var rcJson = '{	"idea1" : "lala1", "idea2" : "lala2" }';
@@ -78,8 +78,34 @@ function loadTag(tag) {
 function loadIdea(obj_idea) {
 	$(".ideaCloud_idea").css("visibility" , "visible");
 	$(".ideaCloud_idea > p").remove();
-
+	$(".ideaCloud_idea > form").remove(); /* clean any forms - really don't know why this line is needed */
+	/**
+	 * TODO create nicer output */
 	$.each(obj_idea, function(i, val) {
 		$(".ideaCloud_idea").append("<p>"+i + " => " + val + "</p>");
 	});	
+	/**
+	 * TODO add a nice icon
+	 * **/
+		$(".ideaCloud_idea").append("<p id='postAnswer'> answer idea owner </p>");
+		$("#postAnswer:not(.disabled)").live('click', function() { 
+				$(this).addClass('disabled');
+				insertAnswerForm();
+		});
+		
 }
+
+/* append a form after the idea details */
+function insertAnswerForm() {
+	$(".ideaCloud_idea > form").remove(); /* clean any forms - really don't know why this line is needed */
+	var form = $('<form method="post" action="route.php">');
+	var fieldset = $('<fieldset class="s_column">');
+	fieldset.append('<legend>answer to an idea</legend>');
+	fieldset.append(' <div><label for="answer_name">your name</label><input type="text" id="answer_name" required="required" class="box_shadow" name="answer_name"  /></div>');
+	fieldset.append('<div><label for="answer_mail">your mail</label><input type="email" id="answer_mail" required="required" class="box_shadow" min="10" name="answer_mail"/></div>');
+	fieldset.append('<div><label for="answer_text">your text for idea owner</label><textarea class="box_shadow textarea" name="answer_text" id="answer_text" cols="30" rows="10"></textarea></div>');
+	fieldset.append('<input type="submit" value="answer &rarr;" />');
+	form.append(fieldset);
+	$(".ideaCloud_idea").append(form);
+}
+
