@@ -5,6 +5,7 @@ require_once("codeBase/logger.php");
 $glob_debug ? require_once("codeBase/idea.php") : null;
 $glob_debug ? require_once("codeBase/dbInterface.php") : null;
 $glob_debug ? require_once("codeBase/tag.php") : null;
+$glob_debug ? require_once("codeBase/answer.php") : null;
 /* we need a logger object */
 $logger = new logger();
 if (isset($_POST["idea_name"])  and isset($_POST["idea_email"]) and isset($_POST["idea_description"])) {
@@ -48,6 +49,15 @@ else if (isset($_POST["load"])) {
 			$tag = new tag($_POST["tag"]);
 			echo json_encode($tag->loadIdeasToTag());
 		}
+}
+else if (isset($_POST["answer_name"])  and isset($_POST["answer_mail"]) and isset($_POST["answer_text"])) {
+		/**
+		 *  TODO smarter solution wanted
+		 * */
+		$glob_debug ? null : require_once("codeBase/answer.php");
+		/*$newAnswer = new answer();
+		$newAnswer->addAnswer($_POST["answer_name"], $_POST["answer_mail"], $_POST["answer_text"]);
+		echo "-> ". $newIdea->get_ideaUniqueId();*/
 }
 /* we need to destruct the logger object */
 $logger->__descruct();
