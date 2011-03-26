@@ -8,6 +8,15 @@ $glob_debug ? require_once("codeBase/tag.php") : null;
 $glob_debug ? require_once("codeBase/answer.php") : null;
 /* we need a logger object */
 $logger = new logger();
+/* we need to see all user input on debug mode */
+if ($glob_debug) {
+	$logger->write("dump user::input:");
+	foreach($_POST as $i) {
+			$logger->write($i);
+	}
+	$logger->write("dump finished");
+}
+$logger->write(($_POST));
 if (isset($_POST["idea_name"])  and isset($_POST["idea_email"]) and isset($_POST["idea_description"])) {
 		/**
 		 *  TODO smarter solution wanted
@@ -48,6 +57,10 @@ else if (isset($_POST["load"])) {
 			$logger->write("request for loading tag".$_POST["tag"]);
 			$tag = new tag($_POST["tag"]);
 			echo json_encode($tag->loadIdeasToTag());
+		}
+		else if ($_POST["load"] == "answers") {
+			$logger->write("request for loading answers for".$_POST["idForAnswers"]);
+			$glob_debug ? null : require_once("codeBase/answer.php");			
 		}
 }
 else if (isset($_POST["answer_name"])  and isset($_POST["answer_mail"]) and isset($_POST["answer_text"]) and isset($_POST["idea_id"])) {

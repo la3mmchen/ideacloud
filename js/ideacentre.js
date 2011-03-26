@@ -9,7 +9,7 @@
  * https://github.com/la3mmchen/ideacloud
  *  */
  
- /* this function shoud be loaded after finishing loading */
+/* this function shoud be loaded after finishing loading */
 $(document).ready(function() {	
 	/* we don't want to reload the page on clicking the submit button, so we
 	 * overwrite the submit-event */
@@ -45,7 +45,9 @@ function loadIdea(id) {
 			$("#idea_description").attr("value",rcObj.idea_description);
 			$("#tag_name").removeAttr("disabled");
 			$("#tag_idea").attr("value", rcObj.idea_id);
-			return true;},
+			loadAnswer2idea(rcObj.idea_id);	
+			return true;
+			},
 		error: function(rc, rcText) {
 			$('<p> '+rcText+' </p>').insertAfter("#submit_ideaCentre");
 		}
@@ -54,14 +56,35 @@ function loadIdea(id) {
 }
 /* this function trys to add a tag to an idea via a XHR */
 function addTag(tag, id) {
-	$("#tag_name").attr("value", "");	
-	$.ajax({
-	type: "POST",
-	url: "route.php",
-	data: "tagid=" + id +"&tag="+tag,
-	dataTyp: "json",
-	success: function(rc) {
-		$("#userFeedback").html('<ins class="positive"> tag added </ins>').hide().delay(500).fadeIn("slow").delay(5000).fadeOut("slow");
-		return true;}
-	});
+		$("#tag_name").attr("value", "");	
+		$.ajax({
+		type: "POST",
+		url: "route.php",
+		data: "tagid=" + id +"&tag="+tag,
+		dataTyp: "json",
+		success: function(rc) {
+			$("#userFeedback").html('<ins class="positive"> tag added </ins>').hide().delay(500).fadeIn("slow").delay(5000).fadeOut("slow");
+			return true;}
+		});
+}
+
+
+function loadAnswer2idea (idea2loadAnswers) {
+		$.ajax({
+		type: "POST",
+		url: "route.php",
+		data: "load=answers&idForAnswers="+idea2loadAnswers,
+		dataTyp: "json",
+		success: function(rcJson) {
+			var obj = jQuery.parseJSON(rcJson);
+			var uL = $('<ul>');
+			$.each(obj, function(i, val) {
+						$("#ideaCentre_answers").append(i + " = > " + val);
+						/*var li = $("<li>");
+						li.click(function() { $(this).siblings().removeClass("selected"); $(this).addClass("selected"); loadIdea(val); });
+						li.append(val.idea_name);
+						li.appendTo(uL);*/
+			});
+			return true;}
+		});
 }
