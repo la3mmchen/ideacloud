@@ -50,7 +50,7 @@ class dbInterface {
 	}
 	
 	public function tag_loadIdeas2Tag($tag) {
-			$selectQuery= "SELECT a.`idea_name`, a.`idea_description`, a.`idea_timestamp` FROM `tbl_idea` a where a.`idea_id` IN \n"
+			$selectQuery= "SELECT a.`idea_id`, a.`idea_name`, a.`idea_description`, a.`idea_timestamp` FROM `tbl_idea` a where a.`idea_id` IN \n"
 						. "( SELECT distinct(`tag2id_ideaId`) FROM `tbl_tag2id` WHERE `tag2id_tagName` like \"".$tag."\" ORDER BY `tbl_tag2id`.`tag2id_tagName` ASC\n"
 						. ")";
 			return $this->LoadPayload($selectQuery);
