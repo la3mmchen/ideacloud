@@ -90,17 +90,20 @@ function loadIdea(obj_idea) {
 		$(".ideaCloud_idea").append("<p id='postAnswer'> answer idea owner </p>");
 		$("#postAnswer:not(.disabled)").live('click', function() { 
 				$(this).addClass('disabled');
-				insertAnswerForm();
+				insertAnswerForm(obj_idea.idea_id);
 		});
 		
 }
 
 /* append a form after the idea details */
-function insertAnswerForm() {
+/**
+ * TODO why does this function is loaded repeatedly **/
+function insertAnswerForm(id) {
 	$(".ideaCloud_idea > form").remove(); /* clean any forms - really don't know why this line is needed */
 	var form = $('<form method="post" action="route.php">');
 	var fieldset = $('<fieldset class="s_column">');
 	fieldset.append('<legend>answer to an idea</legend>');
+	fieldset.append(' <div><input type="hidden" id="idea_id" name="idea_id" value="'+id+'"  /></div>');
 	fieldset.append(' <div><label for="answer_name">your name</label><input type="text" id="answer_name" required="required" class="box_shadow" name="answer_name"  /></div>');
 	fieldset.append('<div><label for="answer_mail">your mail</label><input type="email" id="answer_mail" required="required" class="box_shadow" min="10" name="answer_mail"/></div>');
 	fieldset.append('<div><label for="answer_text">your text for idea owner</label><textarea class="box_shadow textarea" name="answer_text" id="answer_text" cols="30" rows="10"></textarea></div>');
