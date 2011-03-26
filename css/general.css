@@ -125,18 +125,37 @@ footer #bottom p {
 	-webkit-box-shadow: 2px 2px 5px #888;
 	box-shadow: 2px 2px 5px #888;
 }
+.widget-button-hint {
+	position:fixed;
+	z-index:99;
+	left:24px;
+	display:block;
+	width:114px;
+}
+
 #widget-button-add {
 	top:100px;
 	border-top: 1px solid #888;
 }
+#widget-button-add-hint {
+	top:71px;
+	left: 20px;
+}
 #widget-button-cloud {
 	top:123px;
+}
+#widget-button-cloud-hint {
+	top:120px;
+	left: 30px;
 }
 #widget-button-ideacentre {
 	top:146px;
 	border-bottom: 1px solid #888; 
 }
-
+#widget-button-ideacentre-hint {
+	top:175px;
+	left: 12px;
+}
 
 /* ** ** error messages ** ** */
 noscript p {
