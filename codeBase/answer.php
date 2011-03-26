@@ -1,4 +1,14 @@
 <?php
+/**
+ * ideacloud.us - Class for any answering action
+ * 
+ * Version: 0.1
+ * Last Update: 03/26/2011 -> added documentation
+ * 
+ * 
+ * Copyright (c) by the ideacloud.us project
+ * https://github.com/la3mmchen/ideacloud
+ *  */
 /* includes */
 $glob_debug ? null : require_once("codeBase/dbInterface.php");
 
