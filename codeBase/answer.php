@@ -4,9 +4,13 @@ $glob_debug ? null : require_once("codeBase/dbInterface.php");
 
 class answer {
 		/* globals */
-
+		private $answer_id;
+		private $answer_name;
+		private $answer_mail;
+		private $answer_text;
+		private $answer_timestamp;
+		private $idea_id;
 		private static $dbInt;
-		
 	
 		/**
 		 *  php doesn't allow multiple constructors so we have to decide
@@ -19,7 +23,6 @@ class answer {
 					call_user_func_array(array($this,$f),$in);
 				} 
 		}
-		
 		/**
 		 *  build a new object
 		 * */
@@ -29,11 +32,20 @@ class answer {
 		/**
 		 *  build idea object with saved date 
 		 * */
-		private function __construct1($uniqueId) {
-
+		private function __construct1($array) {
+				$this->answer_name = $array["answer_name"];
+				$this->answer_mail = $array["answer_mail"];
+				$this->answer_text = $array["answer_text"];
+				$this->idea_id = $array["idea_id"];
+				$this->answer_id = self::$dbInt->insertDb("tbl_answer", $array);
+				$this->linkAnswer2Idea();
 		}
 		
 		public function toClient() {
+		}
+		
+		private function linkAnswer2Idea(){
+			self::$dbInt->insertDb("tbl_answer2idea",array("answer2id_answerId"=>$this->answer_id, "answer2id_ideaId"=>$this->idea_id));		
 		}
 		
 		private function buildDbInterface() {

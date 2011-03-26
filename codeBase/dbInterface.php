@@ -55,6 +55,14 @@ class dbInterface {
 						. ")";
 			return $this->LoadPayload($selectQuery);
 	}
+	public function insertDb($table, $array) {
+		// array containing data
+		$sql  = "INSERT INTO `ideacloud`.`".$table."`";	
+		$sql .= " (`".implode("`, `", array_keys($array))."`)";
+		$sql .= " VALUES ('".implode("', '", $array)."') ";
+		
+		return $this->executeQuery($sql);
+	}
 	/**
 	 * 
 	 * TODO need a smarter solution
