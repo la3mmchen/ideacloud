@@ -130,31 +130,12 @@ footer #bottom p {
 	z-index:99;
 	left:24px;
 	display:block;
-	width:114px;
+	width:227px;
 }
 
-#widget-button-add {
-	top:100px;
-	border-top: 1px solid #888;
-}
-#widget-button-add-hint {
-	top:71px;
-	left: 20px;
-}
-#widget-button-cloud {
-	top:123px;
-}
-#widget-button-cloud-hint {
-	top:120px;
-	left: 30px;
-}
-#widget-button-ideacentre {
-	top:146px;
-	border-bottom: 1px solid #888; 
-}
-#widget-button-ideacentre-hint {
-	top:175px;
-	left: 12px;
+#widget-button-mail-hint {
+	top:270px;
+	left: 10px;
 }
 
 /* ** ** error messages ** ** */
@@ -186,6 +167,9 @@ noscript p {
 	-moz-box-shadow: 2px 2px 5px #888;
 	-webkit-box-shadow: 2px 2px 5px #888;
 	box-shadow: 2px 2px 5px #888;
+}
+.highlight {
+	border-bottom:1px dashed #0F800C;
 }
 .selected {
 	background-color: #ff9;
