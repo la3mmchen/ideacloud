@@ -47,7 +47,7 @@ class answer {
 				$this->answer_mail = $array["answer_mail"];
 				$this->answer_text = $array["answer_text"];
 				$this->idea_id = $array["idea_id"];
-				$this->answer_id = self::$dbInt->insertDb("tbl_answer", $array);
+				$this->answer_id = self::$dbInt->insertDb("tbl_answer", array("answer_name"=>$this->answer_name, "answer_mail"=>$this->answer_mail, "answer_text"=>$this->answer_text));
 				$this->linkAnswer2Idea();
 		}
 		

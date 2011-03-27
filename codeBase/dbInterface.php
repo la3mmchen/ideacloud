@@ -55,6 +55,13 @@ class dbInterface {
 						. ")";
 			return $this->LoadPayload($selectQuery);
 	}
+	public function idea_loadAnswers2Idea($id) {
+			$selectQuery = "SELECT `answer_name` , `answer_mail` , `answer_text` , `answer_timestamp` FROM tbl_answer a where a.answer_id IN \n"
+						. "( SELECT distinct(answer2id_answerId) FROM tbl_answer2idea WHERE answer2id_ideaId = ".$id." \n"
+						. "ORDER BY tbl_answer2idea.answer2id_ideaId ASC ) LIMIT 0, 30 ";
+			return $this->LoadPayload($selectQuery);
+	}
+	
 	public function insertDb($table, $array) {
 		// array containing data
 		$sql  = "INSERT INTO `ideacloud`.`".$table."`";	

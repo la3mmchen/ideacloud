@@ -60,7 +60,9 @@ else if (isset($_POST["load"])) {
 		}
 		else if ($_POST["load"] == "answers") {
 			$logger->write("request for loading answers for".$_POST["idForAnswers"]);
-			$glob_debug ? null : require_once("codeBase/answer.php");			
+			$glob_debug ? null : require_once("codeBase/idea.php");
+			$idea = new idea();
+			echo json_encode($idea->loadAnswersToIdea($_POST["idForAnswers"]));
 		}
 }
 else if (isset($_POST["answer_name"])  and isset($_POST["answer_mail"]) and isset($_POST["answer_text"]) and isset($_POST["idea_id"])) {

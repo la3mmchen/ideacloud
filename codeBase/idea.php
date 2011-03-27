@@ -43,6 +43,11 @@ class idea {
 			return array("idea_id"=>$this->idea_id, "idea_name"=>$this->idea_name, "idea_mail"=>$this->idea_mail, "idea_description"=>$this->idea_description, "idea_timestamp"=>$this->idea_timestamp, "idea_uniqueId"=>$this->idea_uniqueId);
 		}
 		
+		public function loadAnswersToIdea($ideaId) {
+			$this->idea_id = $ideaId;
+			return self::$dbInt->idea_loadAnswers2Idea($this->idea_id);
+		}
+		
 		/**
 		 * 
 		 * TODO
@@ -83,7 +88,7 @@ class idea {
 		 * */
 		private function createUniqueId() {
 			// pool
-			$chars = "#abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+			$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 			$length =rand(10, 30);
 			// start creation
 			srand((double)microtime()*1000000);

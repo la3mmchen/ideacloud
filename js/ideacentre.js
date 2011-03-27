@@ -76,15 +76,19 @@ function loadAnswer2idea (idea2loadAnswers) {
 		data: "load=answers&idForAnswers="+idea2loadAnswers,
 		dataTyp: "json",
 		success: function(rcJson) {
+			/**
+			 * TOOD create nicer output
+			 * */
 			var obj = jQuery.parseJSON(rcJson);
-			var uL = $('<ul>');
+			var ul = $('<ul>');
 			$.each(obj, function(i, val) {
-						$("#ideaCentre_answers").append(i + " = > " + val);
-						/*var li = $("<li>");
-						li.click(function() { $(this).siblings().removeClass("selected"); $(this).addClass("selected"); loadIdea(val); });
-						li.append(val.idea_name);
-						li.appendTo(uL);*/
+						$.each(val, function(x,y) {
+							var li = $("<li>");
+							li.append(x + " => "+ y);
+							li.appendTo(ul);
+						});
 			});
+			$(".ideaCentre_answers").append(ul);
 			return true;}
 		});
 }
